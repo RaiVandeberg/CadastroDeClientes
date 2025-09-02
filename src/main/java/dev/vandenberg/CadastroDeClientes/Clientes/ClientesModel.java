@@ -1,6 +1,9 @@
-package dev.vandenberg.CadastroDeClientes;
+package dev.vandenberg.CadastroDeClientes.Clientes;
 
+import dev.vandenberg.CadastroDeClientes.Dependentes.DependenteModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 //Entity eke transforma uma classe em uma entidade do bd
 @Entity
@@ -13,6 +16,7 @@ public class ClientesModel {
    private String nome;
    private String email;
    private int idade;
+   private List<DependenteModel> dependentes;
 
     public ClientesModel() {
     }

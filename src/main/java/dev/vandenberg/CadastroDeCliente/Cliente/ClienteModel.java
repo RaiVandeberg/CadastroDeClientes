@@ -2,11 +2,17 @@ package dev.vandenberg.CadastroDeCliente.Cliente;
 
 import dev.vandenberg.CadastroDeClientes.Dependentes.DependenteModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 //Entity eke transforma uma classe em uma entidade do bd
 @Entity
 @Table(name = "tb_cadastro")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class ClienteModel {
 
     @Id

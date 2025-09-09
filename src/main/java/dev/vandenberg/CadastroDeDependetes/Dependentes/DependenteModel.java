@@ -1,7 +1,8 @@
-package dev.vandenberg.CadastroDeClientes.Dependentes;
+package dev.vandenberg.CadastroDeDependetes.Dependentes;
 
 
-import dev.vandenberg.CadastroDeCliente.Cliente.ClienteModel;
+
+import dev.vandenberg.CadastroDeCliente.Clients.ClienteModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

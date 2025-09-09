@@ -1,4 +1,4 @@
-package dev.vandenberg.CadastroDeClientes;
+package dev.vandenberg.CadastroDeDependetes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

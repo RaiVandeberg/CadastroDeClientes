@@ -16,16 +16,22 @@ import lombok.NoArgsConstructor;
 public class DependenteModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "nome")
     private String nome;
 
     @Column(unique = true)
     private String email;
 
+    @Column(name = "telefone")
     private String telefone;
+
+    @Column(name = "data_nascimento")
     private String dataNascimento;
 
-    //
+
     @ManyToOne
     @JoinColumn(name = "cliente_id" )
     private ClienteModel clientes;

@@ -4,7 +4,7 @@ package dev.vandenberg.Dependentes;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("dependentes")
+@RequestMapping("/dependentes")
 public class DependenteController {
 
     @PostMapping("/criar")

@@ -3,13 +3,9 @@ package dev.vandenberg.Clients;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/clientes")
 public class ClienteController {
 
-    @GetMapping("/boasvindas")
-    public String boasVindas (){
-        return "Boas vindas";
-    }
 
     // adicionar cliente
     @PostMapping("/criar")

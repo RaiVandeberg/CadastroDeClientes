@@ -30,9 +30,9 @@ public class DependenteController {
         return "Atualizar dependente";
     }
 
-    @GetMapping("/id")
-    public  String mostrarDependentePorId(){
-        return "Mostrar dependente";
+    @GetMapping("/{id}")
+    public  DependenteModel buscarDependentePorId(@PathVariable Long id){
+        return dependenteService.buscarDependentePorId(id);
     }
 
     @DeleteMapping("/id")

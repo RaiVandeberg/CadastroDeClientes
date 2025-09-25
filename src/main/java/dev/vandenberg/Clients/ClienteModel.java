@@ -1,5 +1,6 @@
 package dev.vandenberg.Clients;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.vandenberg.Dependentes.DependenteModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class ClienteModel {
 
    // um cliente pode ter varios dependentes
    @OneToMany(mappedBy =  "clientes")
+   @JsonIgnore
    private List<DependenteModel> dependentes;
 
 

@@ -3,16 +3,26 @@ package dev.vandenberg.Dependentes;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/dependentes")
 public class DependenteController {
 
+    private  DependenteService dependenteService;
+
+    public DependenteController(DependenteService dependenteService) {
+        this.dependenteService = dependenteService;
+    }
+
     @PostMapping("/criar")
-    public String dependentes (){ return "Dependentes";}
+    public String dependentes (){
+        return "Dependentes";
+    }
 
     @GetMapping("/all")
-    public String listarDependentes(){
-        return "Dependentes";
+    public List<DependenteModel> listarDependentes(){
+        return dependenteService.listarDependentes();
     }
 
     @PutMapping("/id")

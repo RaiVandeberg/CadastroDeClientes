@@ -15,20 +15,21 @@ public class DependenteController {
         this.dependenteService = dependenteService;
     }
 
-    @PostMapping("/criar")
-    public String dependentes (){
-        return "Dependentes";
+    @PostMapping
+    public DependenteModel criarDependente(@RequestBody DependenteModel dependente) {
+        return dependenteService.criarDependente(dependente);
     }
+
 
     @GetMapping("/all")
     public List<DependenteModel> listarDependentes(){
         return dependenteService.listarDependentes();
     }
 
-    @PutMapping("/id")
-    public  String atualizarDependentePorId(){
-        return "Atualizar dependente";
-    }
+//    @PutMapping("/{id}")
+//    public  String atualizarDependentePorId(){
+//        return "Atualizar dependente";
+//    }
 
     @GetMapping("/{id}")
     public  DependenteModel buscarDependentePorId(@PathVariable Long id){

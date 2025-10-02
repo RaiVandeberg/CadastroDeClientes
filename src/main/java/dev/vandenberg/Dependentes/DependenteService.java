@@ -23,4 +23,7 @@ public class DependenteService {
         return dependenteId.orElse(null);
         //ou ele vai buscar o id ou vai retornar null
     }
+    public DependenteModel criarDependente(DependenteModel dependente){
+        return dependenteRepository.save(dependente);
+    }
 }

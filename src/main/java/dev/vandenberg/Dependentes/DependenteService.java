@@ -26,4 +26,8 @@ public class DependenteService {
     public DependenteModel criarDependente(DependenteModel dependente){
         return dependenteRepository.save(dependente);
     }
+
+    public void deletarDependentePorId(Long id){
+       dependenteRepository.deleteById(id);
+    }
 }

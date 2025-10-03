@@ -36,8 +36,8 @@ public class DependenteController {
         return dependenteService.buscarDependentePorId(id);
     }
 
-    @DeleteMapping("/id")
-    public  String deletarDependentePorId(){
-        return "Deletar dependente";
+    @DeleteMapping("/{id}")
+    public void deletarDependentePorId(@PathVariable Long id){
+         dependenteService.deletarDependentePorId(id);
     }
 }

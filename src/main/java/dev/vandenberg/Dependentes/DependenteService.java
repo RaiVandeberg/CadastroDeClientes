@@ -30,4 +30,14 @@ public class DependenteService {
     public void deletarDependentePorId(Long id){
        dependenteRepository.deleteById(id);
     }
+
+    public DependenteModel atualizarDependente(Long id, DependenteModel dependente){
+        if(dependenteRepository.existsById(id)) {
+            dependente.setId(id);
+            return dependenteRepository.save(dependente);
+
+        }
+        return null;
+    }
+
 }

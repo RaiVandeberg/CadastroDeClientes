@@ -26,10 +26,10 @@ public class DependenteController {
         return dependenteService.listarDependentes();
     }
 
-//    @PutMapping("/{id}")
-//    public  String atualizarDependentePorId(){
-//        return "Atualizar dependente";
-//    }
+    @PutMapping("/{id}")
+    public DependenteModel atualizarDependente(@PathVariable Long id, @RequestBody DependenteModel dependente) {
+        return dependenteService.atualizarDependente(id, dependente);
+    }
 
     @GetMapping("/{id}")
     public  DependenteModel buscarDependentePorId(@PathVariable Long id){

@@ -31,6 +31,9 @@ public class DependenteModel {
     @Column(name = "data_nascimento")
     private String dataNascimento;
 
+    @Column(name = "pagaments")
+    private Integer  pagaments;
+
 
     @ManyToOne
     @JoinColumn(name = "cliente_id" )

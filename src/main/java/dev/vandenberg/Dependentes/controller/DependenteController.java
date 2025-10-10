@@ -1,6 +1,9 @@
-package dev.vandenberg.Dependentes;
+package dev.vandenberg.Dependentes.controller;
 
 
+import dev.vandenberg.Dependentes.DependenteDTO;
+import dev.vandenberg.Dependentes.DependenteModel;
+import dev.vandenberg.Dependentes.services.DependenteService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,14 +12,14 @@ import java.util.List;
 @RequestMapping("/dependentes")
 public class DependenteController {
 
-    private  DependenteService dependenteService;
+    private DependenteService dependenteService;
 
     public DependenteController(DependenteService dependenteService) {
         this.dependenteService = dependenteService;
     }
 
     @PostMapping
-    public DependenteModel criarDependente(@RequestBody DependenteModel dependente) {
+    public DependenteDTO criarDependente(@RequestBody DependenteDTO dependente) {
         return dependenteService.criarDependente(dependente);
     }
 

@@ -1,5 +1,9 @@
-package dev.vandenberg.Dependentes;
+package dev.vandenberg.Dependentes.services;
 
+import dev.vandenberg.Dependentes.DependenteDTO;
+import dev.vandenberg.Dependentes.DependenteMapper;
+import dev.vandenberg.Dependentes.DependenteModel;
+import dev.vandenberg.Dependentes.DependenteRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,9 +13,11 @@ import java.util.Optional;
 public class DependenteService {
 
     private DependenteRepository dependenteRepository;
+    private DependenteMapper dependenteMapper;
 
-    public DependenteService(DependenteRepository dependenteRepository) {
+    public DependenteService(DependenteRepository dependenteRepository, DependenteMapper dependenteMapper) {
         this.dependenteRepository = dependenteRepository;
+        this.dependenteMapper = dependenteMapper;
     }
 
     public List<DependenteModel> listarDependentes(){
@@ -23,8 +29,10 @@ public class DependenteService {
         return dependenteId.orElse(null);
         //ou ele vai buscar o id ou vai retornar null
     }
-    public DependenteModel criarDependente(DependenteModel dependente){
-        return dependenteRepository.save(dependente);
+    public DependenteDTO criarDependente(DependenteDTO dependenteDTO){
+        DependenteModel dependente = dependenteMapper.map(dependenteDTO);
+        dependente = dependenteRepository.save(dependente);
+       return dependenteMapper.map(dependente);
     }
 
     public void deletarDependentePorId(Long id){

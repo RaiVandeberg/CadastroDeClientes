@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class DependenteService {
@@ -20,15 +21,19 @@ public class DependenteService {
         this.dependenteMapper = dependenteMapper;
     }
 
-    public List<DependenteModel> listarDependentes(){
-
-        return dependenteRepository.findAll();
+    public List<DependenteDTO> listarDependentes(){
+        List<DependenteModel> dependentes = dependenteRepository.findAll();
+        return dependentes.stream()
+                .map(dependenteMapper::map)
+                .collect(Collectors.toList());
     }
-    public DependenteModel buscarDependentePorId(Long id){
+
+    public DependenteDTO buscarDependentePorId(Long id){
         Optional<DependenteModel> dependenteId = dependenteRepository.findById(id);
-        return dependenteId.orElse(null);
+        return dependenteId.map(dependenteMapper::map).orElse(null);
         //ou ele vai buscar o id ou vai retornar null
     }
+
     public DependenteDTO criarDependente(DependenteDTO dependenteDTO){
         DependenteModel dependente = dependenteMapper.map(dependenteDTO);
         dependente = dependenteRepository.save(dependente);
@@ -36,14 +41,17 @@ public class DependenteService {
     }
 
     public void deletarDependentePorId(Long id){
-       dependenteRepository.deleteById(id);
+
+        dependenteRepository.deleteById(id);
     }
 
-    public DependenteModel atualizarDependente(Long id, DependenteModel dependente){
-        if(dependenteRepository.existsById(id)) {
-            dependente.setId(id);
-            return dependenteRepository.save(dependente);
-
+    public DependenteDTO atualizarDependente(Long id, DependenteDTO dependente){
+        Optional<DependenteModel> DependenteExistente = dependenteRepository.findById(id);
+        if(DependenteExistente.isPresent()){
+            DependenteModel dependenteAtualizado = dependenteMapper.map(dependente);
+            dependenteAtualizado.setId(id);
+            DependenteModel dependenteSalvo = dependenteRepository.save(dependenteAtualizado);
+            return dependenteMapper.map(dependenteSalvo);
         }
         return null;
     }

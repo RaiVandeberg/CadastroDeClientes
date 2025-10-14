@@ -25,17 +25,17 @@ public class DependenteController {
 
 
     @GetMapping("/all")
-    public List<DependenteModel> listarDependentes(){
+    public List<DependenteDTO> listarDependentes(){
         return dependenteService.listarDependentes();
     }
 
     @PutMapping("/{id}")
-    public DependenteModel atualizarDependente(@PathVariable Long id, @RequestBody DependenteModel dependente) {
+    public DependenteDTO atualizarDependente(@PathVariable Long id, @RequestBody DependenteDTO dependente) {
         return dependenteService.atualizarDependente(id, dependente);
     }
 
     @GetMapping("/{id}")
-    public  DependenteModel buscarDependentePorId(@PathVariable Long id){
+    public  DependenteDTO buscarDependentePorId(@PathVariable Long id){
         return dependenteService.buscarDependentePorId(id);
     }
 

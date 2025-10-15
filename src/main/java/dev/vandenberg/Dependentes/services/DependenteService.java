@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 @Service
 public class DependenteService {
 
-    private DependenteRepository dependenteRepository;
-    private DependenteMapper dependenteMapper;
+    private final DependenteRepository dependenteRepository;
+    private final DependenteMapper dependenteMapper;
 
     public DependenteService(DependenteRepository dependenteRepository, DependenteMapper dependenteMapper) {
         this.dependenteRepository = dependenteRepository;

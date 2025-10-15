@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/dependentes")
 public class DependenteController {
 
-    private DependenteService dependenteService;
+    private final DependenteService dependenteService;
 
     public DependenteController(DependenteService dependenteService) {
         this.dependenteService = dependenteService;

@@ -1,0 +1,41 @@
+<!
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabela de Dependentes</title>
+</head>
+<body>
+<h1>
+    Cadastro de Dependentes
+</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+
+        <th> nome</th>
+         <th>email</th>
+        <th>telefone</th>
+         <th>data de nascimento</th>
+        <th>clientes</th>
+        <th>pagaments</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="dependente : ${dependentes}">
+        <td th:text="${dependente.id}"></td>
+        <td th:text="${dependente.nome}"></td>
+        <td th:text="${dependente.email}"></td>
+        <td th:text="${dependente.telefone}"></td>
+        <td th:text="${dependente.dataNascimento}"></td>
+        <td th:text="${dependente.clientes}"></td>
+        <td th:text="${dependente.pagaments}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

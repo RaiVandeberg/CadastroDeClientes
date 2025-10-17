@@ -27,7 +27,7 @@ public class ClienteModel {
 
 
    // um cliente pode ter varios dependentes
-   @OneToMany(mappedBy =  "clientes")
+   @OneToMany(mappedBy =  "clientes", cascade = CascadeType.ALL, orphanRemoval = true)
    @JsonIgnore
    private List<DependenteModel> dependentes;
 

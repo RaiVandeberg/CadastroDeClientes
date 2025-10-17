@@ -17,6 +17,7 @@ public class DependenteController {
     private final DependenteService dependenteService;
 
     public DependenteController(DependenteService dependenteService) {
+
         this.dependenteService = dependenteService;
     }
 
